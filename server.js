@@ -20,7 +20,9 @@ const calculateOrderAmount = items => {
 
   // people from directly manipulating the amount on the client
 
-  return 1400;
+  console.log(items[0].amount)
+
+  return items[0].amount;
 
 };
 
@@ -34,7 +36,7 @@ app.post("/create-payment-intent", async (req, res) => {
 
     amount: calculateOrderAmount(items),
 
-    currency: "usd"
+    currency: "aud"
 
   });
 
@@ -47,5 +49,6 @@ app.post("/create-payment-intent", async (req, res) => {
 });
 
 //app.listen(4242, () => console.log('Node server listening on port 4242!'));
-const PORT = process.env.PORT || 5001;
+//const PORT = process.env.PORT || 5001;
+const PORT = 5001
 app.listen(PORT, () => console.log('Node server listening on port ${PORT}'));
